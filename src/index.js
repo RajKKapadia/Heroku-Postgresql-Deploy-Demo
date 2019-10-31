@@ -39,10 +39,10 @@ app.post('/add-user', async (req, res) => {
     var query = {};
     
     if (req.body.status) {
-        query['text'] = 'INSERT INTO user(email, status) VALUES($1, $2)';
+        query['text'] = 'INSERT INTO public.user(email, status) VALUES($1, $2)';
         query['values'] = [req.body.email, req.body.status];
     } else {
-        query['text'] = 'INSERT INTO user(email, status) VALUES($1, $2)';
+        query['text'] = 'INSERT INTO public.user(email, status) VALUES($1, $2)';
         query['values'] = [req.body.email, false];
     }
 
