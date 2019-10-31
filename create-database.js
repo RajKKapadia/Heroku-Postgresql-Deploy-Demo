@@ -9,7 +9,7 @@ const createTable = async () => {
 
     const client = await pool.connect();
 
-    let response = await client.query('CREATE TABLE "user" (id bigserial NOT NULL, email character varying(100) NOT NULL, status boolean NOT NULL, PRIMARY KEY (id))')
+    let response = await client.query('CREATE TABLE "ramesh" (id bigserial NOT NULL, email character varying(100) NOT NULL, status boolean NOT NULL, PRIMARY KEY (id))')
     
     return response;
 };
