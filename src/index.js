@@ -34,6 +34,27 @@ const insertUser = async (query) => {
     return response['rowCount'];
 };
 
+const getUser = async () => {
+
+    const client = await pool.connect();
+    var response = await client.query('SELECT * FROM public.user');
+    client.release();
+
+    return response;
+};
+
+app.get('/show-user', (req, res) => {
+
+    getUser()
+        .then((response) => {
+            console.log(response);
+            res.send(response);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+});
+
 app.post('/add-user', async (req, res) => {
     
     var query = {};
